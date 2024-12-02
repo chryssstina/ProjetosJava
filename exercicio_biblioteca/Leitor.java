@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Leitor {
-    public String nome;
-    public String id;
+    private String nome;
+    private String id;
     private List<Livro> livrosPegos;
 
     
