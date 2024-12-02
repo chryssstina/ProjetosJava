@@ -35,16 +35,16 @@ public class FenomenoClimatico{
         this.duracao = duracao;
     }
 
-  //  public AreaGeografica getAreaAfetada() {
-    //    return areaAfetada;
-  //  }
+/*  public AreaGeografica getAreaAfetada() {
+        return areaAfetada;
+    } 
 
-//    public void setAreaAfetada(AreaGeografica areaAfetada) {
-//        this.areaAfetada = areaAfetada;
-//    }
+    public void setAreaAfetada(AreaGeografica areaAfetada) {
+        this.areaAfetada = areaAfetada;
+    }
+*/
 
-
-public void calcularImpacto(){
+    public void calcularImpacto(){
         if(this.getNome().equals("Chuva")){
           
                 if(this.intensidade < 2.5){
@@ -77,9 +77,16 @@ public void calcularImpacto(){
         }else{
                 System.out.println("Fenômeno não encontrado");     
         }
-
         
-}
+    }
+    
+    public void informacoesFenomeno(){
+        System.out.println("Tipo de fenômeno: " +getNome());
+        System.out.println("Duração: " +getDuracao());
+        System.out.println("Intensidade: " +getIntensidade());
+    }
+
+    
 
 
 
