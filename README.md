@@ -1,4 +1,4 @@
-## Projetos em Java ![icone](image.png)
+## Projetos em Java ![icone](https://fontawesome.com/icons/java?f=brands&s=solid)
 
 ### Grafo com LinkedList
 
