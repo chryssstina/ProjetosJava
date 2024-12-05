@@ -75,7 +75,7 @@ public class FenomenoClimatico{
                 }
                 
         }else{
-                System.out.println("Fenômeno não encontrado");     
+                System.out.println("Fenômeno não encontrado. Digite outro");     
         }
         
     }
