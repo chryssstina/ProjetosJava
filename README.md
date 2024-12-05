@@ -1,4 +1,4 @@
-## Projetos em ![Java](image.png)
+## Projetos em Java ![icone](image.png)
 
 ### Grafo com LinkedList
 
