@@ -1,3 +1,6 @@
-#Projetos em Java#
+#Projetos em Java
 
-##Grafo com LinkedList##
+##Grafo com LinkedList
+##Gestão de Biblioteca
+##Vendas Online
+##Monitoramento de Mudanças Climáticas
