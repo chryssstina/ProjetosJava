@@ -1,0 +1,109 @@
+[33mcommit 52e2ba47b348e66d46f14450a9134fc97aba69fa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Chrystina <chrystinamaria3@gmail.com>
+Date:   Thu Dec 5 19:13:45 2024 -0300
+
+    Mudança no else
+
+[33mcommit 42690163ba9d6f4fba37cd5032de0e1577a1db77[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 21:01:28 2024 -0300
+
+    Add métodos AreaGeografica.java
+    
+    Add construtor, getters e setters
+
+[33mcommit 16a82da151cb070a2dbc4badabfc2c10e3b45a8a[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 21:00:01 2024 -0300
+
+    Add files via upload
+
+[33mcommit 9706e0419ef07cbc4e163fa433e6ea5035936309[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 19:49:13 2024 -0300
+
+    Add método FenomenoClimatico.java
+    
+    Adicionando o método que exibe as informações do fenômeno
+
+[33mcommit beb692b0f6e5b210959afed1517f3f87e875d95f[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 19:42:33 2024 -0300
+
+    Add files via upload
+    
+    Primeiro upload
+
+[33mcommit dd63fcac25d3b95e05ee0e1e715212a62eaec64b[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 17:08:13 2024 -0300
+
+    Update Cliente.java
+
+[33mcommit 0720e7b9bc3b3d55fd8189556599c588f1dd08e2[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 16:52:27 2024 -0300
+
+    Add objetos Main.java
+    
+    Criando novos objetos para teste
+
+[33mcommit ef26de932c848b3df0aceae3cbafefa08fed8884[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 16:48:15 2024 -0300
+
+    Update Pedido.java
+    
+    1. Colocando o atributo pagamento em comentário;
+    2. Adicionando o get/ set de List<Produto> itens;
+    3. Adicionando o método para exibir a lista de produtos de pedido
+
+[33mcommit f3afe7c3fab102d309060495e3b3e3cc685825e4[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Mon Dec 2 07:53:06 2024 -0300
+
+    Update Leitor.java
+    
+    Corrigindo a visibilidade dos atributos de Leitor que estavam públicos
+
+[33mcommit 51b90cbdffa89db1c8653b7f5c14581a86402fb6[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Dec 1 20:56:55 2024 -0300
+
+    primeiro upload
+
+[33mcommit 861620557bc61eb64647b537151a955e791dce6d[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Dec 1 20:56:03 2024 -0300
+
+    primeiro upload
+
+[33mcommit 1d32096b545f5714020156cb64dbd889c245dd95[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Nov 10 17:48:31 2024 -0300
+
+    Delete Grafo.java
+
+[33mcommit b680b389ef68bd9d8d68666c69fe7b5058fa7b7b[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Nov 10 17:48:17 2024 -0300
+
+    Delete Node.java
+
+[33mcommit 753af7db2027f18323b82cb193d0530a3c5aebf4[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Nov 10 17:47:55 2024 -0300
+
+    Delete Main.java
+
+[33mcommit 0ce4b7e52adbe63c18cbf09a3d0cd4e2854886bb[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Nov 10 17:46:57 2024 -0300
+
+    Add files via upload
+
+[33mcommit 1f775d39b6b24bc88cbda10008c0b0a9e5793d24[m
+Author: Chrystina <144075668+chryssstina@users.noreply.github.com>
+Date:   Sun Nov 10 17:40:43 2024 -0300
+
+    Add files via upload
