@@ -2,5 +2,5 @@
 
 ##Grafo com LinkedList
 ##Gestão de Biblioteca
-##Vendas Online
+##Sistema de Vendas Online
 ##Monitoramento de Mudanças Climáticas
