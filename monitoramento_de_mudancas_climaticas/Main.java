@@ -24,7 +24,7 @@ public class Main {
         fenomeno4.addArea(area5);
 
 
-        area1.addFenomeno(fenomeno1);
+        area1.addFenomeno(fenomeno1); 
         area1.addFenomeno(fenomeno3);
         area2.addFenomeno(fenomeno4);
         area3.addFenomeno(fenomeno2);
@@ -33,17 +33,23 @@ public class Main {
 
 
 
+        System.out.println("--------------------------------------------");
+        System.out.println("|   MONITORAMENTO DE MUDANÇAS CLIMÁTICAS   |");
+        System.out.println("--------------------------------------------");
+        System.out.println();
+        System.out.println();
 
-        System.out.println("-------MONITORAMENTO DE MUDANÇAS CLIMÁTICAS-------");
+
         Relatorio relatorio1 = new Relatorio("123abc", "2024-12-05", "João");
         relatorio1.gerarRelatorio();
         area1.gerarRelatorio();
-
-        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println();
 
         Relatorio relatorio2 = new Relatorio("456abc", "2023-07-15", "Ana");
         relatorio2.gerarRelatorio();
         area2.gerarRelatorio();
+        System.out.println();
 
 
     }
