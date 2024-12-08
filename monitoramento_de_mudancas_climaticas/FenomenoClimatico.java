@@ -99,11 +99,14 @@ public class FenomenoClimatico implements Monitoravel{
 
     @Override
     public void gerarRelatorio(){
-        System.out.println("Nome do fenômeno: " +getTipo());
-        System.out.println("Intensidade: " +getIntensidade());
-        System.out.println("Duração de: "+getDuracao());
-        System.out.println("Impacto baseado no nível: " +calcularImpactoAmbiental());
-        System.out.println("Afetou os seguintes locais: ");
+        System.out.println("----------------------------");
+        System.out.println("|  NFORMAÇÕES DO FENÕMENO  |");
+        System.out.println("----------------------------");
+        System.out.println("CATEGORIA: " +getTipo());
+        System.out.println("INTENSIDADE: " +getIntensidade());
+        System.out.println("DURAÇÃO DE: "+getDuracao());
+        System.out.println("IMPACTO BASEADO NO TIPO: " +calcularImpactoAmbiental());
+        System.out.println("lOCAIS AFETADOS: ");
             listaAreaAfetada();
             
     }
