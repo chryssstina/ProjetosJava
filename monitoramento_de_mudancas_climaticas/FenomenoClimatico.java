@@ -7,6 +7,7 @@ public class FenomenoClimatico implements Monitoravel{
     private String duracao;
     private List<AreaGeografica> areaAfetada;
 
+
     public FenomenoClimatico(String tipo, double intensidade, String duracao) {
         this.tipo = tipo;
         this.intensidade = intensidade;
@@ -48,38 +49,38 @@ public class FenomenoClimatico implements Monitoravel{
     
 
 
-    public void calcularImpactoAmbiental(){
+    public String calcularImpactoAmbiental(){
                 if(getTipo().equals("Chuva")){
                 
                     if(this.intensidade < 2.5){
-                        System.out.println("Chuva fraca");
+                        return "Chuva fraca";
                     }else if(this.intensidade >=2.5 && this.intensidade < 10.00){
-                        System.out.println("Chuva moderada");
+                        return "Chuva moderada";
                     }else if(this.intensidade >=10.00 && this.intensidade < 50.00){
-                        System.out.println("Chuva forte");
+                        return "Chuva forte";
                     }else{
-                        System.out.println("Chuva violenta");
+                        return "Chuva violenta";
                     }
             
                }else if(getTipo().equals("Terremoto")){
                     if(this.intensidade < 3.5){
-                        System.out.println("Muito difícil de ser percebido");
+                        return "Muito difícil de ser percebido";
                     }else if(this.intensidade >= 3.50 && this.intensidade < 5.4){
-                        System.out.println("Percebidos com consequências modestas");
+                        return "Percebidos com consequências modestas";
                     }else if(this.intensidade >= 5.4 && this.intensidade < 6.0){
-                        System.out.println("Destruição significativa em edificações com construção frágeis");
+                        return "Destruição significativa em edificações com construção frágeis";
                     }else if(this.intensidade >= 6.0 && this.intensidade < 7.0){
-                        System.out.println("Destruição de tudo em um raio de 100 quilômetros");
+                        return "Destruição de tudo em um raio de 100 quilômetros";
                     }else if(this.intensidade >= 7.0 && this.intensidade < 7.9){
-                        System.out.println("Surgimento de fendas");
+                        return "Surgimento de fendas";
                     }else if(this.intensidade >= 8.0 && this.intensidade < 8.9){
-                        System.out.println("Destruição de todas as construções existentes");
+                        return "Destruição de todas as construções existentes";
                     }else{
-                        System.out.println("Destruição total...");
+                        return "Destruição total...";
                     }
                     
                }else{
-                    System.out.println("Fenômeno não encontrado. Digite outro");     
+                    return "Fenômeno não encontrado. Digite outro";     
               }
     }
 
@@ -89,15 +90,22 @@ public class FenomenoClimatico implements Monitoravel{
         areaAfetada.add(area);
     }
 
+
+    public void listaAreaAfetada(){
+        for (AreaGeografica areaAtual : areaAfetada) {
+            System.out.println(areaAtual.getNome());
+        }
+    }
+
     @Override
     public void gerarRelatorio(){
         System.out.println("Nome do fenômeno: " +getTipo());
         System.out.println("Intensidade: " +getIntensidade());
         System.out.println("Duração de: "+getDuracao());
+        System.out.println("Impacto baseado no nível: " +calcularImpactoAmbiental());
         System.out.println("Afetou os seguintes locais: ");
-            for (AreaGeografica areaAtual : areaAfetada) {
-                System.out.println(areaAtual.getNome());
-            }
+            listaAreaAfetada();
+            
     }
 
 
