@@ -43,14 +43,20 @@ public class AreaGeografica implements Monitoravel{
 
     }
 
+    public void listaFenomenosNaArea(){
+        for (FenomenoClimatico fenomenoAtual : fenomeno) {
+            System.out.println(fenomenoAtual.getTipo());            
+        }
+    } 
+
+
     @Override
     public void gerarRelatorio(){
         System.out.println("Local: "+getNome());
         System.out.println("Aproximadamente " +getAreaKm()+ "km");
         System.out.println("O local foi afetado por: ");
-            for (FenomenoClimatico fenomenoAtual : fenomeno) {
-                System.out.println(fenomenoAtual.getTipo());            
-            }
+        listaFenomenosNaArea();
+           
     }
 
 }
