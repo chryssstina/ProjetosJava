@@ -52,9 +52,12 @@ public class AreaGeografica implements Monitoravel{
 
     @Override
     public void gerarRelatorio(){
-        System.out.println("Local: "+getNome());
-        System.out.println("Aproximadamente " +getAreaKm()+ "km");
-        System.out.println("O local foi afetado por: ");
+        System.out.println("-------------------------");
+        System.out.println("|  NFORMAÇÕES DO LOCAL  |");
+        System.out.println("-------------------------");
+        System.out.println("REGIÃO: "+getNome());
+        System.out.println("POSSUI APROXIMADAMENTE " +getAreaKm()+ "KM");
+        System.out.println("A REGIÃO FOI AFETADA POR: ");
         listaFenomenosNaArea();
            
     }
