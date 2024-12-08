@@ -74,9 +74,13 @@ public class Relatorio implements Monitoravel{
     
     @Override
     public void gerarRelatorio(){ 
-        System.out.println("Número ID do relatório: " +getIdRelatorio());
+        System.out.println("--------------------");
+        System.out.println("|  RELATÓRIO " +getIdRelatorio()+ " |");
+        System.out.println("--------------------");
+        System.out.println("Número de identificação ID : " +getIdRelatorio());
         System.out.println(formatarData());
         System.out.println("Relatório gerador por: "+getAutor());
+        System.out.println();
     }
 
 }
