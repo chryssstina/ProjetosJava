@@ -9,11 +9,13 @@ public class Relatorio implements Monitoravel{
     private String idRelatorio;
     private LocalDate dataRelatorio;
     private String autor;
+    private List<AreaGeografica> areas;
 
     public Relatorio(String idRelatorio, String dataString, String autor) {
         this.idRelatorio = idRelatorio;
         this.dataRelatorio = validarData(dataString);
         this.autor = autor;
+        this.areas = new ArrayList<>();
         
          //aqui é passado uma String data que, depois de verificada (para saber se está no formato certo),
         //é atribuída ao atributo dataRelatorio
@@ -42,7 +44,23 @@ public class Relatorio implements Monitoravel{
         this.autor = autor;
     }
 
-   
+    public List<AreaGeografica> getAreas() {
+        return areas;
+    }
+    public void setAreas(List<AreaGeografica> areas) {
+        this.areas = areas;
+    }
+
+    public void addArea(AreaGeografica area){
+        areas.add(area);
+    }
+
+    public void listaFenomenosNoRelatorio(){
+        for (AreaGeografica areaGeograficaAtual : areas) {
+            areaGeograficaAtual.gerarRelatorio();
+        }
+    } 
+
 
     //----------INÍCIO DA VALIDAÇÃO E FORMATAÇÃO DA DATA
     public LocalDate validarData(String dataString){
@@ -79,8 +97,14 @@ public class Relatorio implements Monitoravel{
         System.out.println("--------------------");
         System.out.println("Número de identificação ID : " +getIdRelatorio());
         System.out.println(formatarData());
-        System.out.println("Relatório gerador por: "+getAutor());
+        System.out.println("Relatório gerado por: "+getAutor());
+        System.out.println();
+        listaFenomenosNoRelatorio();
         System.out.println();
     }
+
+
+
+    
 
 }
