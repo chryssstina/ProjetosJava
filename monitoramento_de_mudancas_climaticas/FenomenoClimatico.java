@@ -97,17 +97,21 @@ public class FenomenoClimatico implements Monitoravel{
         }
     }
 
+    public void calcularPrejuizoFinanceiro() {
+        Prejuizo prejuizo = new Prejuizo(this);
+        prejuizo.gerarRelatorio();
+    }
+
     @Override
     public void gerarRelatorio(){
-        System.out.println("----------------------------");
-        System.out.println("|  NFORMAÇÕES DO FENÕMENO  |");
-        System.out.println("----------------------------");
-        System.out.println("CATEGORIA: " +getTipo());
-        System.out.println("INTENSIDADE: " +getIntensidade());
-        System.out.println("DURAÇÃO DE: "+getDuracao());
-        System.out.println("IMPACTO BASEADO NO TIPO: " +calcularImpactoAmbiental());
-        System.out.println("lOCAIS AFETADOS: ");
+        System.out.println("|=>  INFORMAÇÕES DO FENÕMENO");
+        System.out.println("Categoria: " +getTipo());
+        System.out.println("Intensidade: " +getIntensidade());
+        System.out.println("Duração de: "+getDuracao());
+        System.out.println("Impacto: " +calcularImpactoAmbiental());
+        System.out.println("Locais afetados: ");
             listaAreaAfetada();
+            calcularPrejuizoFinanceiro();
             
     }
 
