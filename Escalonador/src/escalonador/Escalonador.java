@@ -5,15 +5,17 @@ import java.util.Random;
 
 public class EscalonadorSJF {
   private int quantMinProcessos = 2;
-	private int quantMaxProcessos = 30;
-	private int quantTotalProcessos;
-	private List<Processo> processos;
+  private int quantMaxProcessos = 30;
+  private int quantTotalProcessos;
+  private List<Processo> processos;
 	
-	//construtor vazio
-	public EscalonadorSJF(){}
+  //construtor
+  public EscalonadorSJF(){
+	this.processos = new ArrayList<>();
+  }
 	
-	public int getQuantMinProcessos() {
-      return quantMinProcessos;
+  public int getQuantMinProcessos() {
+      	return quantMinProcessos;
   }
 
   public int getQuantMaxProcessos() {
@@ -27,26 +29,23 @@ public class EscalonadorSJF {
   public void setQuantTotalProcessos(int quantTotalProcessos){
     this.quantTotalProcessos = quantTotalProcessos;
   }
+	
   public List<Processo> getProcessos(){
     return processos;
   }
   
    public void ordenarProcessos(){
      Random gerador = new Random();
-     this.processos = new ArrayList<>();
-	    
-	  
-	    //O método nextInt(n) gera um número entre 0 e n-1
-	    //Aqui é add 1 para que o valor vá até o máximo 
-	    setQuantTotalProcessos(gerador.nextInt(getQuantMaxProcessos() - getQuantMinProcessos() + 1 + getQuantMinProcessos()));
+       
+    //O método nextInt(n) gera um número entre 0 e n-1
+    //Aqui é add 1 para que o valor vá até o máximo 
+    setQuantTotalProcessos(gerador.nextInt(getQuantMaxProcessos() - getQuantMinProcessos() + 1 + getQuantMinProcessos()));
 
   		for(int i=1; i<=getQuantTotalProcessos(); i++){
   	
   		  /*setId(i);
   		  setTempoChegada(gerador.nextInt(10)+1); 
   		  setTempoExecucao(gerador.nextInt(30)); */
-  		  
-  		  
   		   //processos.add(new Processo(getId(), getTempoChegada(), getTempoExecucao()));
   		    processos.add(new Processo(i, gerador.nextInt(10)+1 , gerador.nextInt(10)+1));
   		   
