@@ -1,4 +1,3 @@
-package escalonador;
 
 public class Processo {
 	
@@ -9,6 +8,7 @@ public class Processo {
 	int tempoEspera;
 	int tempoInicio;
 	int tempoTurnArround;
+	int tempoInterrupcao;
 	
 	
 	public Processo(int id, int tempoChegada, int tempoExecucao) {
@@ -18,5 +18,13 @@ public class Processo {
 	}
 	
 	
+	public int getTempoChegada() {
+        return tempoChegada;
+    }
+
+    	public int getTempoExecucao() {
+        return tempoExecucao;
+    }
+
 	
 }
