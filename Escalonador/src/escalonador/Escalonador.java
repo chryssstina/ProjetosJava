@@ -3,75 +3,74 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-//Escalonador do tipo FCFS
-//Usar o RANDON para gerar valores aleatórios 
-public class Escalonador {
+public class EscalonadorSJF {
+  private int quantMinProcessos = 2;
+	private int quantMaxProcessos = 30;
+	private int quantTotalProcessos;
+	private List<Processo> processos;
+	
+	//construtor vazio
+	public EscalonadorSJF(){}
+	
+	public int getQuantMinProcessos() {
+      return quantMinProcessos;
+  }
 
-	public static void main(String args[]) {
-	  Random gerador = new Random();
+  public int getQuantMaxProcessos() {
+      return quantMaxProcessos;
+  }
+  
+  public int getQuantTotalProcessos(){
+    return quantTotalProcessos;
+  }
+  
+  public void setQuantTotalProcessos(int quantTotalProcessos){
+    this.quantTotalProcessos = quantTotalProcessos;
+  }
+  public List<Processo> getProcessos(){
+    return processos;
+  }
+  
+   public void ordenarProcessos(){
+     Random gerador = new Random();
+     this.processos = new ArrayList<>();
+	    
 	  
-	  int quantMinProcessos = 2;
-	  int quantMaxProcessos = 100;
-	  
-	  //O método nextInt(n) gera um número entre 0 e n-1
-	  //Aqui é add 1 para que o valor vá até o máximo 
-	  int quantTotalProcessos = gerador.nextInt(quantMaxProcessos - quantMinProcessos + 1 + quantMinProcessos);
-	  
-		List<Processo> processos = new ArrayList<>(); 
-		
-		for(int i=1; i<=quantTotalProcessos;i++){
-		   int id=i; 
-		   int tempoChegada=gerador.nextInt(10)+1; //supor que 10seg
-		   int tempoExecucao=gerador.nextInt(30);
-		   processos.add(new Processo(id,tempoChegada,tempoExecucao));
-		   
-		
-      		//primeiro compara o tempo de chagada e depois o tempo de execução
-      		processos.sort(Comparator.comparingInt(Processo::getTempoChegada)
-                                       .thenComparingInt(Processo :: getTempoExecucao));
+	    //O método nextInt(n) gera um número entre 0 e n-1
+	    //Aqui é add 1 para que o valor vá até o máximo 
+	    setQuantTotalProcessos(gerador.nextInt(getQuantMaxProcessos() - getQuantMinProcessos() + 1 + getQuantMinProcessos()));
 
-		
-        		int tempoAtual = 0;
-        		for(Processo processoAtual : processos) {
-        			processoAtual.tempoInicio = Math.max(processoAtual.tempoChegada, tempoAtual);
-        			processoAtual.tempoInterrupcao = gerador.nextInt(4);
+  		for(int i=1; i<=getQuantTotalProcessos(); i++){
+  	
+  		  /*setId(i);
+  		  setTempoChegada(gerador.nextInt(10)+1); 
+  		  setTempoExecucao(gerador.nextInt(30)); */
+  		  
+  		  
+  		   //processos.add(new Processo(getId(), getTempoChegada(), getTempoExecucao()));
+  		    processos.add(new Processo(i, gerador.nextInt(10)+1 , gerador.nextInt(10)+1));
+  		   
+         //primeiro compara o tempo de execução e depois o tempo de chegada
+         //não precisa colocar () ao fazer a chamaada dos métodos por causa da expressão lambda dentro do Comparator
+      	 processos.sort(Comparator.comparingInt(Processo::getTempoExecucao).thenComparingInt(Processo :: getTempoChegada));
+  
+  	
+      		int tempoAtual = 0;
+      		for(Processo processoAtual : processos) {
+        			processoAtual.setTempoInicio(Math.max(processoAtual.getTempoChegada(), tempoAtual));
+        			processoAtual.setTempoInterrupcao(gerador.nextInt(4));
 
-        			processoAtual.tempoConclusao = processoAtual.tempoInicio + processoAtual.tempoExecucao + processoAtual.tempoInterrupcao;
-        			processoAtual.tempoEspera = processoAtual.tempoInicio - processoAtual.tempoChegada;
-        			processoAtual.tempoTurnArround = processoAtual.tempoConclusao - processoAtual.tempoChegada;
+        			processoAtual.setTempoConclusao(processoAtual.getTempoInicio() + processoAtual.getTempoExecucao() + processoAtual.getTempoInterrupcao());
+        			processoAtual.setTempoEspera(processoAtual.getTempoInicio() - processoAtual.getTempoChegada());
+        			processoAtual.setTempoTurnArround(processoAtual.getTempoConclusao() - processoAtual.getTempoChegada());
         			
-        			//processoAtual.tempoTotalInterrupcao = processoAtual.tempoFimInterrupcao - processoAtual.tempoInicioInterrupcao; 
-        			
+
         			
         			//garante que o atual só execute quando o anterior terminar
-        			tempoAtual = processoAtual.tempoConclusao;
+        			tempoAtual = processoAtual.getTempoConclusao();
 
-        		}
-		}
-		
-		
-		
-		System.out.println
-		//("ID - Chegada - Execução - Início - Interrupção - Conclusão - Espera - TurnArround;
-		("ID\tCh\tTExe\tIn\tInter\tCon\tEsp\tTnArr");
-		int somaEspera = 0, somaTurnArround = 0;
-		for(Processo processoAtual : processos) {
-			System.out.printf("%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n", 
-					processoAtual.id, 
-					processoAtual.tempoChegada, 
-					processoAtual.tempoExecucao,
-					processoAtual.tempoInicio,
-					processoAtual.tempoInterrupcao,
-					processoAtual.tempoConclusao,
-					processoAtual.tempoEspera,
-					processoAtual.tempoTurnArround);
-			
-			somaEspera += processoAtual.tempoEspera;
-			somaTurnArround += processoAtual.tempoTurnArround;
-		}
-		
-		System.out.printf("\n Tempo médio de espera: " +(double) somaEspera/processos.size());
-		System.out.printf("\n Tempo médio de TurnArround: " +(double) somaTurnArround/processos.size());
-		
-	}
+      		}
+        }
+  }
+
 }
