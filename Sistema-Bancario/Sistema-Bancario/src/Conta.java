@@ -1,4 +1,4 @@
-public class Conta implements Transacao {
+public abstract class Conta implements Transacao {
     private String idConta;
     private Cliente cliente;
     private double saldoEmConta;
@@ -28,12 +28,6 @@ public class Conta implements Transacao {
         this.saldoEmConta = saldoEmConta;
     }
     
-    public double calculoLimiteSaque(){
-        double limitePermitido = getSaldoEmConta()/2 + getSaldoEmConta();
-        System.out.println("Você pode sacar no máximo R$ " +limitePermitido);
-
-        return limitePermitido;
-    }
 
     public void realizarTranferencia(Conta contaClienteOrigem, Conta contaClienteDestino, double valorTranferencia){
         if(contaClienteOrigem == null || contaClienteDestino == null || valorTranferencia == 0){
@@ -46,13 +40,13 @@ public class Conta implements Transacao {
             contaClienteOrigem.setSaldoEmConta(contaClienteOrigem.getSaldoEmConta() - valorTranferencia);
             contaClienteDestino.setSaldoEmConta(contaClienteDestino.getSaldoEmConta() + valorTranferencia);
 
-            System.out.println("Tranferência realizada com sucesso! Saldos após tranferência: ");
+            System.out.println("Tranferência de " +valorTranferencia+ " realizada com sucesso! Saldos após tranferência: ");
 
             //de trás pra frente: pegar nome do cliente da classe Cliente do cliente de origem
             System.out.println("Cliente de origem: " +contaClienteOrigem.getCliente().getNomeCliente());
-            System.out.println("Novo Saldo: R$" +contaClienteDestino.getSaldoEmConta());
+            System.out.println("Novo Saldo: R$" +contaClienteOrigem.getSaldoEmConta());
 
-            System.out.println("Cliente de destino: " +contaClienteOrigem.getCliente().getNomeCliente());
+            System.out.println("Cliente de destino: " +contaClienteDestino.getCliente().getNomeCliente());
             System.out.println("Novo Saldo: R$" +contaClienteDestino.getSaldoEmConta());
 
         }
@@ -60,7 +54,6 @@ public class Conta implements Transacao {
     }
 
 
-    //funciona como o setSaldoEmConta()
     @Override
     public void depositarValor(double valor){
         if (valor <= 0 ) {
@@ -70,13 +63,17 @@ public class Conta implements Transacao {
             System.out.println("Depósito de R$" +valor+ " realizado."); 
         }
     }
+
+    public abstract double valorTotalPermitidoSaque();
+    //conta corrente corrente vai ter um limite extra para saque
+
     @Override
     public void sacarValor(double valor){
-        double limiteSaque = calculoLimiteSaque();
+        double valorTotalPermitidoSaque = valorTotalPermitidoSaque();
 
         if (valor <= 0) {
             System.out.println("Você não pode realizar o saque de um valor nulo ou negativo");    
-        }else if(getSaldoEmConta() <= 0 || valor > limiteSaque){
+        }else if(getSaldoEmConta() <= 0 || valor > valorTotalPermitidoSaque){
             System.out.println("Você não tem dinheiro suficiente em conta ou o valor excede seu limite de saque");
         }else{
             saldoEmConta = getSaldoEmConta() - valor;
