@@ -35,25 +35,25 @@ public class Conta implements Transacao {
         return limitePermitido;
     }
 
-    public void realizarTranferencia(Conta clienteOrigem, Conta clienteDestino, double valorTranferencia){
-        if(clienteOrigem == null || clienteDestino == null || valorTranferencia == 0){
+    public void realizarTranferencia(Conta contaClienteOrigem, Conta contaClienteDestino, double valorTranferencia){
+        if(contaClienteOrigem == null || contaClienteDestino == null || valorTranferencia == 0){
             System.out.println("Atenção! Você não pode digitar valores nulos!");
 
-        }else if(valorTranferencia > clienteOrigem.getSaldoEmConta()){
+        }else if(valorTranferencia > contaClienteOrigem.getSaldoEmConta()){
             System.out.println("O cliente de origem não tem saldo suficiente para realizar a transferência");
 
         }else{
-            clienteOrigem.setSaldoEmConta(clienteOrigem.getSaldoEmConta() - valorTranferencia);
-            clienteDestino.setSaldoEmConta(clienteDestino.getSaldoEmConta() + valorTranferencia);
+            contaClienteOrigem.setSaldoEmConta(contaClienteOrigem.getSaldoEmConta() - valorTranferencia);
+            contaClienteDestino.setSaldoEmConta(contaClienteDestino.getSaldoEmConta() + valorTranferencia);
 
             System.out.println("Tranferência realizada com sucesso! Saldos após tranferência: ");
 
             //de trás pra frente: pegar nome do cliente da classe Cliente do cliente de origem
-            System.out.println("Cliente de origem: " +clienteOrigem.getCliente().getNomeCliente());
-            System.out.println("Novo Saldo: R$" +clienteOrigem.getSaldoEmConta());
+            System.out.println("Cliente de origem: " +contaClienteOrigem.getCliente().getNomeCliente());
+            System.out.println("Novo Saldo: R$" +contaClienteDestino.getSaldoEmConta());
 
-            System.out.println("Cliente de destino: " +clienteDestino.getCliente().getNomeCliente());
-            System.out.println("Novo Saldo: R$" +clienteDestino.getSaldoEmConta());
+            System.out.println("Cliente de destino: " +contaClienteOrigem.getCliente().getNomeCliente());
+            System.out.println("Novo Saldo: R$" +contaClienteDestino.getSaldoEmConta());
 
         }
 
