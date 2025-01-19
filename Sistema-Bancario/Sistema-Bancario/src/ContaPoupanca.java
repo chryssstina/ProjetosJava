@@ -13,6 +13,11 @@ public class ContaPoupanca extends Conta {
         this.taxaJuros = taxaJuros;
     }
 
+    @Override
+    public double valorTotalPermitidoSaque(){
+        return getSaldoEmConta();
+    };
+
     public void calculoRendimento(){
         double rendimento = getSaldoEmConta() * taxaJuros;
         setSaldoEmConta(rendimento + getSaldoEmConta());
