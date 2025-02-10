@@ -1,10 +1,10 @@
 public abstract class Veiculo{
     protected String placa;
-    protected String capacidadeCarga;
+    protected String capacidadeCarga; //virá da classe Carga
     protected String tipoCombustivel;
     protected double altura;
     protected double largura;
-    protected double pesoBrutoTotal; //peso máximo do caminhão com carga
+    protected double pesoBrutoTotal; //peso máximo do caminhão com carga - nn é passado no construtor - sem get e set ainda
     protected String tipoCarroceria; 
 
     public Veiculo(String placa, String capacidadeCarga, String tipoCombustivel, double altura, double largura, String tipoCarroceria) {
@@ -30,7 +30,7 @@ public abstract class Veiculo{
     }
 
     public void setPlaca(String placa) {
-        if(placa==null || placa.equals("")){
+        if(placa==null || placa.trim().equals("")){
             System.out.println("O valor não pode ser nulo ou vazio!");
         }else{
             this.placa = placa;
@@ -68,6 +68,14 @@ public abstract class Veiculo{
     public void setLargura(double largura) {
         this.largura = largura;
     }
+    
+    public String getTipoCarroceria() {
+        return tipoCarroceria;
+    }
+
+    public void setTipoCarroceria(String tipoCarroceria) {
+        this.tipoCarroceria = tipoCarroceria;
+    }
 
     public abstract void custoManutencao();
     
@@ -75,7 +83,9 @@ public abstract class Veiculo{
       System.out.println("Placa: "+getPlaca()+
                          "\nCapacidade de carga: " +getCapacidadeCarga()+ 
                          "\nCombustível: "+getTipoCombustivel()+
-                         "\nDimesões: " +getAltura()+" x "+getLargura()
+                         "\nDimesões: " +getAltura()+" x "+getLargura()+
+                         "\nPeso Brutal Total: (sem implementação ainda)"+
+                         "\nTipo de Carroceria: "+getTipoCarroceria()
                          );
       
     }
