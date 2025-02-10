@@ -22,7 +22,6 @@ public abstract class Veiculo{
         this.largura = largura;
         this.tipoCarroceria = tipoCarroceria;
       }
-        
     }
 
     public String getPlaca() {
