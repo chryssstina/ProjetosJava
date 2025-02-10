@@ -42,7 +42,11 @@ public abstract class Veiculo{
     }
 
     public void setCapacidadeCarga(String capacidadeCarga) {
-        this.capacidadeCarga = capacidadeCarga;
+        if(capacidadeCarga==null || capacidadeCarga.trim().equals("")){
+            System.out.println("O valor não pode ser nulo ou vazio!");
+        }else{
+            this.capacidadeCarga = capacidadeCarga;
+        }
     }
 
     public String getTipoCombustivel() {
@@ -50,7 +54,11 @@ public abstract class Veiculo{
     }
 
     public void setTipoCombustivel(String tipoCombustivel) {
-        this.tipoCombustivel = tipoCombustivel;
+        if(tipoCombustivel==null || tipoCombustivel.trim().equals("")){
+            System.out.println("O valor não pode ser nulo ou vazio!");
+        }else{
+            this.tipoCombustivel = tipoCombustivel;
+        }
     } 
 
     public double getAltura() {
@@ -58,7 +66,11 @@ public abstract class Veiculo{
     }
 
     public void setAltura(double altura) {
-        this.altura = altura;
+        if(altura<=0){
+            System.out.println("O valor não pode ser nulo ou vazio!");
+        }else{
+            this.altura = altura;
+        }
     }
 
     public double getLargura() {
@@ -66,7 +78,11 @@ public abstract class Veiculo{
     }
 
     public void setLargura(double largura) {
-        this.largura = largura;
+        if(largura<=0){
+            System.out.println("O valor não pode ser nulo ou vazio!");
+        }else{
+            this.largura = largura;
+        }
     }
     
     public String getTipoCarroceria() {
@@ -74,7 +90,11 @@ public abstract class Veiculo{
     }
 
     public void setTipoCarroceria(String tipoCarroceria) {
-        this.tipoCarroceria = tipoCarroceria;
+        if(tipoCarroceria==null || tipoCarroceria.trim().equals("")){
+            System.out.println("O valor não pode ser nulo ou vazio!");
+        }else{
+            this.tipoCarroceria = tipoCarroceria;
+        }
     }
 
     public abstract void custoManutencao();
