@@ -1,7 +1,7 @@
-public class Carga{
-    private double peso;
-    private String tipoCarga;
-    private double valor;
+public abstract class Carga{
+    protected double peso;
+    protected String tipoCarga;
+    protected double valor;
 
     public Carga(double peso, String tipoCarga, double valor){
         this.peso = peso;
@@ -33,9 +33,7 @@ public class Carga{
         this.valor = valor;
     }
 
-    public void valorSeguro(){
-      
-    }
+    public abstract void valorSeguro();
 
 
 }
