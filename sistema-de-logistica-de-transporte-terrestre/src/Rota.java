@@ -1,3 +1,4 @@
+//package LogisticaTransporte;
 
 public class Rota {
     private double distancia;
@@ -10,17 +11,18 @@ public class Rota {
         this.pontosParada = pontosParada;
     }
     
-    // Procurar se tem como formatar pra mostrar so duas casas decimais
     public void calcularTempoEstimado() {
         if(tipoEstrada.equalsIgnoreCase("ruim")){
-            double tempo = distancia*2/60;
-            System.out.printf("O tempo médio da viagem é de %.2f",tempo," horas \n");
+            double tempo = (distancia*2)/60;
+            System.out.printf("O tempo médio da viagem é de %.2f horas \n",tempo);
         }else if(tipoEstrada.equalsIgnoreCase("medio")){
-            double tempo = distancia*1.5/60;
-            System.out.println("O tempo médio da viagem é de "+tempo+" horas");
-        }else{
+            double tempo = (distancia*1.5)/60;
+            System.out.printf("O tempo médio da viagem é de %.2f horas \n",tempo);
+        }else if(tipoEstrada.equalsIgnoreCase("boa")){
             double tempo = distancia/60;
-            System.out.println("O tempo médio da viagem é de "+tempo+" horas");
+            System.out.printf("O tempo médio da viagem é de %.2f horas \n",tempo);
+        }else{
+            System.out.println("O tipo da estrada está invalido");
         }
     }
 
