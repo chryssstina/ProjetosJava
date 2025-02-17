@@ -1,19 +1,22 @@
 public class Viagem {
-    public Endereco origem;
-    public Endereco destino;
-    public String dataSaida;
-    public Carga carga;
+    private Endereco origem;
+    private Endereco destino;
+    private String dataSaida;
+    private Carga carga;
+    private Rota rota;
 
-    public Viagem(Endereco origem, Endereco destino, String dataSaida, Carga carga) {
+    public Viagem(Endereco origem, Endereco destino, String dataSaida, Carga carga, Rota rota) {
 
         Utils.validaNull(origem);
         Utils.validaNull(destino);
         Utils.validaNull(dataSaida);
         Utils.validaNull(carga);
+        Utils.validaNull(rota);
         this.origem = origem;
         this.destino = destino;
         this.dataSaida = dataSaida;
         this.carga = carga;
+        this.rota = rota;
     }
 
     public Endereco getOrigem() {
@@ -50,6 +53,15 @@ public class Viagem {
     public void setCarga(Carga carga) {
         Utils.validaNull(carga);
         this.carga = carga;
+    }
+
+    public Rota getRota() {
+        return rota;
+    }
+
+    public void setRota(Rota rota) {
+        Utils.validaNull(rota);
+        this.rota = rota;
     }
     
     
