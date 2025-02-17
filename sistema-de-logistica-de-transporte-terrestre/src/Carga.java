@@ -34,6 +34,7 @@ public abstract class Carga{
     }
 
     public abstract void valorSeguro();
+    public abstract void inforCarga();
 
 
 }
