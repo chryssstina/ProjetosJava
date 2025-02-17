@@ -1,14 +1,22 @@
-public class Main {
-    public static void main(String[] args) {
-        Rota rota1 = new Rota(500, "boa", "5");
-        CaminhaoLeve caminhao1 = new CaminhaoLeve("ABC123", "2 toneladas", "Diesel", 5.0, 6.0, "Frigo");
-        Manutencao manu = new Manutencao("20/07/2001", 500, "pintura", caminhao1);
 
+//package LogisticaTransporte;
+
+public class Main {
+    public static void main(String[] args){
+        Rota rota1 = new Rota(500, "ruim", "3");
+        Manutencao manu = new Manutencao("05/10/2000", 200.00, "Troca do oleo");
+        CargaFragil fragil = new CargaFragil(100, "Carga frágil", 1000, "Espelhos", 50);
+        CargaPerigosa perigo = new CargaPerigosa(1000, "Carga perigosa", 10000, "gasolina", 100);
+        CargaViva viva = new CargaViva(10000, "Carga Viva", 2000, "Boi", 50);
+        
         rota1.calcularTempoEstimado();
         manu.detalhesManutencao();
-        manu.notifica(40028922);
-        manu.notifica("viniciusbeta@gmail.com", "Pifou");
-
-        
+        fragil.valorSeguro();
+        fragil.inforCarga();
+        perigo.valorSeguro();
+        perigo.inforCarga();
+        viva.valorSeguro();
+        viva.inforCarga();
     }
+    
 }
